@@ -137,10 +137,10 @@ def searchMaze(maze,currentCoordinates,prevDirection,endPoint):
         return [str(currentCoordinates)]
     
     # Get the direction to check, using the previous direction as the last one to check for backtracking
-    directionsToCheck = (list(filter(lambda z:z!=prevDirection,range(4))) + ([prevDirection] if prevDirection > -1 else []))
+    directionsToCheck = (list(filter(lambda z:z!=prevDirection,range(4))) + ([prevDirection] if prevDirection < -1 else []))
     for x in directionsToCheck:
         if not current[x]:
-            debug(currentCoordinates,endPoint,x,current,prevDirection,directionsToCheck)   
+#            debug(currentCoordinates,endPoint,x,current,prevDirection,directionsToCheck)   
             return [str(currentCoordinates)] +  searchMaze(maze, [(i,j+1),(i+1,j),(i,j-1),(i-1,j)][x],((x + 2) % 4),endPoint)
             
     print("No solution found")
