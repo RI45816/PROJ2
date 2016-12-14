@@ -165,17 +165,16 @@ def main():
     ## Get Iniital Condition
     
     # Get starting row (validatad input)
-#    startingRow = int(input("Please enter the starting row: "))
-#    while not startingRow in range(len(maze)-1):
-#        startingRow = int(input("Invalid, enter a number between 0 and %s (inclusive): " % (len(maze)-1)))
-#        
-#    # Get starting column (validated input)
-#    startingColumn = int(input("Please enter the starting column: "))
-#    while not startingColumn in range(len(maze[0])):
-#        startingColumn = int(input("Invalid enter a number between 0 and %s (inclusive): " % (len(maze[0]))))
+    startingRow = int(input("Please enter the starting row: "))
+    while not startingRow in range(len(maze)-1):
+        startingRow = int(input("Invalid, enter a number between 0 and %s (inclusive): " % (len(maze)-1)))
+        
+    # Get starting column (validated input)
+    startingColumn = int(input("Please enter the starting column: "))
+    while not startingColumn in range(len(maze[0])):
+        startingColumn = int(input("Invalid enter a number between 0 and %s (inclusive): " % (len(maze[0]))))
         
     ## Begin pathfinding
-#    searchMaze(maze,(startingRow,startingColumn))
-    print("\n".join(searchMaze(maze,(0,1),-1, tuple(map(lambda x:int(x),maze[-1])))))
+    print("\n".join(searchMaze(maze,(startingRow,startingColumn),-1, tuple(map(lambda x:int(x),maze[-1])))))
 #    print(searchMaze(maze,(0,1),-1, tuple(map(lambda x:int(x),maze[-1]))))
 main()
